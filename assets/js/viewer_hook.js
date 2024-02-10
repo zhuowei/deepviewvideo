@@ -7,6 +7,9 @@ THREE.WebGLRenderer = function (arg1) {
   this.xr.enabled = true;
   this.xr.setReferenceSpaceType("local");
   document.body.appendChild(VRButton.createButton(this));
+  this.xr.addEventListener("sessionstart", () => {
+    document.getElementsByTagName("video")[0].play();
+  });
   return this;
 };
 // EffectComposer not supported on WebXR
